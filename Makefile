@@ -8,4 +8,4 @@ dockerhub:
 	docker push acdha/pre-commit:latest
 
 test: build
-	docker run -it --rm -v $(shell pwd):/code pre-commit-docker:latest
+	docker run -it --rm -v $(shell pwd):/code pre-commit:latest
