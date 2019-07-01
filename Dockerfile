@@ -2,7 +2,7 @@ FROM python:3.7
 
 ENV DEBIAN_FRONTEND="noninteractive"
 
-RUN apt-get -qqy update && apt-get -qqy dist-upgrade && apt-get install -qqy git && apt-get -qqy autoclean
+RUN apt-get -qqy update && apt-get -qqy dist-upgrade && apt-get install -qqy git shellcheck && apt-get -qqy autoclean
 
 RUN pip install --quiet --upgrade pip
 RUN pip install --quiet pre-commit
