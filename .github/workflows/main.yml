@@ -8,14 +8,13 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-
         steps:
             - uses: actions/checkout@v1
             - name: Build the Docker image
-              run: docker build -t docker.pkg.github.com/${GITHUB_REPOSITORY}/$(basename "${GITHUB_REPOSITORY}"):latest .
+              run: docker build -t docker.pkg.github.com/${GITHUB_REPOSITORY}/$(basename "${GITHUB_REPOSITORY}"):master .
             - name: Publish the Docker image
               env:
                   PACKAGE_PUBLICATION_TOKEN: ${{ secrets.PACKAGE_PUBLICATION_TOKEN }}
               run: |
                   docker login docker.pkg.github.com -u acdha -p ${PACKAGE_PUBLICATION_TOKEN}
-                  docker push docker.pkg.github.com/${GITHUB_REPOSITORY}/$(basename "${GITHUB_REPOSITORY}"):latest
+                  docker push docker.pkg.github.com/${GITHUB_REPOSITORY}/$(basename "${GITHUB_REPOSITORY}"):master
