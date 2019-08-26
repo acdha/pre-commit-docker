@@ -11,8 +11,6 @@ RUN adduser --system pre-commit
 
 RUN install -d -o pre-commit /pre-install-temp /code
 
-USER pre-commit
-
 WORKDIR /pre-install-temp
 COPY .pre-commit-config.yaml /pre-install-temp/
 RUN git init
