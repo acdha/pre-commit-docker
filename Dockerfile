@@ -2,7 +2,11 @@ FROM python:3.7
 
 ENV DEBIAN_FRONTEND="noninteractive"
 
-RUN apt-get -qqy update && apt-get -qqy dist-upgrade && apt-get install -qqy git shellcheck && apt-get -qqy autoclean
+RUN curl -Lo /tmp/terraform.zip --fail --silent https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip
+
+RUN apt-get -qqy update && apt-get -qqy dist-upgrade && apt-get install -qqy git shellcheck unzip && apt-get -qqy autoremove && apt-get -qqy autoclean
+
+RUN unzip -d /usr/local/bin /tmp/terraform.zip && rm /tmp/terraform.zip
 
 RUN pip install --quiet --upgrade pip
 RUN pip install --quiet pre-commit
