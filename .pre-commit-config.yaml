@@ -1,4 +1,13 @@
+exclude: ".*/vendor/.*"
 repos:
+    - repo: https://github.com/pre-commit/mirrors-isort
+      rev: v4.3.21
+      hooks:
+          - id: isort
+    - repo: https://github.com/ambv/black
+      rev: 19.10b0
+      hooks:
+          - id: black
     - repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v2.4.0
       hooks:
@@ -29,3 +38,17 @@ repos:
       hooks:
           - id: prettier
             files: \.(css|less|scss|ts|tsx|graphql|gql|js|jsx|md)$
+    - repo: https://github.com/gruntwork-io/pre-commit
+      rev: v0.0.9
+      hooks:
+          - id: shellcheck
+    - repo: https://gitlab.com/pycqa/flake8
+      rev: 3.7.9
+      hooks:
+          - id: flake8
+            additional_dependencies:
+                - flake8-assertive
+                - flake8-bugbear
+                - flake8-comprehensions
+                - flake8-eradicate
+                - flake8-logging-format
