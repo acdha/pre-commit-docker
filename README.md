@@ -4,6 +4,12 @@ This is just enough Docker to run [pre-commit](https://pre-commit.com) as a CI s
 
 ## Usage
 
+### Docker
+
+```bash
+$ docker run -it --rm --volume "$(pwd)":/code acdha/pre-commit:latest
+```
+
 ### GitLab CI
 
 ```yaml
