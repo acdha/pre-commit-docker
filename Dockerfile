@@ -8,10 +8,13 @@ RUN pip install --no-cache-dir --quiet --upgrade pip && pip install --no-cache-d
 
 RUN adduser --system pre-commit
 
-RUN install -d -o pre-commit /pre-install-temp /code
+RUN install -d -o pre-commit /code
 
-WORKDIR /pre-install-temp
-COPY .pre-commit-config.yaml /pre-install-temp/
+WORKDIR /code
+
+# Allow this repository's configuration to serve as a default which can be
+# overwritten by the target repo:
+COPY .pre-commit-config.yaml /code
 RUN git init
 RUN pre-commit install-hooks
 
@@ -19,4 +22,4 @@ VOLUME /code
 
 WORKDIR /code
 
-ENTRYPOINT pre-commit install-hooks && pre-commit run --all-files
+ENTRYPOINT pre-commit run --all-files
