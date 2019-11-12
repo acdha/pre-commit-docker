@@ -4,8 +4,7 @@ ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN apt-get -qqy update && apt-get -qqy dist-upgrade && apt-get install -qqy git shellcheck unzip && apt-get -qqy autoremove && apt-get -qqy autoclean
 
-RUN pip install --quiet --upgrade pip
-RUN pip install --quiet pre-commit
+RUN pip install --no-cache-dir --quiet --upgrade pip && pip install --no-cache-dir --quiet pre-commit
 
 RUN adduser --system pre-commit
 
