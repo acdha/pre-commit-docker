@@ -2,7 +2,7 @@ FROM python:3.8
 
 ENV DEBIAN_FRONTEND="noninteractive"
 
-RUN apt-get -qqy update && apt-get -qqy dist-upgrade && apt-get install -qqy git shellcheck unzip && apt-get -qqy autoremove && apt-get -qqy autoclean
+RUN apt-get -qqy clean && apt-get -qqy update && apt-get -qqy upgrade && apt-get install --no-install-recommends -qqy git shellcheck unzip && apt-get -qqy autoremove && apt-get -qqy clean
 
 RUN pip install --no-cache-dir --quiet --upgrade pip && pip install --no-cache-dir --quiet pre-commit
 
