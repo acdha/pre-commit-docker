@@ -6,9 +6,9 @@ ADD https://releases.hashicorp.com/terraform/0.12.21/terraform_0.12.21_linux_amd
 
 RUN unzip -d /usr/bin/ /tmp/terraform_0.12.21_linux_amd64.zip
 
-ADD https://github.com/segmentio/terraform-docs/releases/download/v0.8.2/terraform-docs-v0.8.2-linux-amd64 /tmp/
+ADD https://github.com/segmentio/terraform-docs/releases/download/v0.9.1/terraform-docs-v0.9.1-linux-amd64 /tmp/
 
-RUN install -m 0755 /tmp/terraform-docs-v0.8.2-linux-amd64 /usr/bin/terraform-docs
+RUN install -m 0755 /tmp/terraform-docs-v0.9.1-linux-amd64 /usr/bin/terraform-docs
 
 RUN apt-get -qqy clean && apt-get -qqy update && apt-get -qqy upgrade && apt-get install --no-install-recommends -qqy git shellcheck unzip && apt-get -qqy autoremove && apt-get -qqy clean
 
