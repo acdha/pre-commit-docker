@@ -2,9 +2,9 @@ FROM python:3.8
 
 ENV DEBIAN_FRONTEND="noninteractive"
 
-ADD https://releases.hashicorp.com/terraform/0.12.21/terraform_0.12.21_linux_amd64.zip /tmp/
+ADD https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip /tmp/
 
-RUN unzip -d /usr/bin/ /tmp/terraform_0.12.21_linux_amd64.zip
+RUN unzip -d /usr/bin/ /tmp/terraform_0.12.24_linux_amd64.zip
 
 ADD https://github.com/segmentio/terraform-docs/releases/download/v0.9.1/terraform-docs-v0.9.1-linux-amd64 /tmp/
 
