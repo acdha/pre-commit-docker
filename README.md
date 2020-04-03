@@ -1,6 +1,13 @@
 # pre-commit Docker packaging
 
-This is just enough Docker to run [pre-commit](https://pre-commit.com) as a CI stage.
+This is just enough Docker to run [pre-commit](https://pre-commit.com) as a CI
+stage.
+
+Because they are on use on many projects, the following dependencies are
+pre-installed:
+
+-   terraform
+-   terraform-docs
 
 ## Usage
 
