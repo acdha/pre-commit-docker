@@ -2,13 +2,13 @@ FROM python:3.8
 
 ENV DEBIAN_FRONTEND="noninteractive"
 
-ADD https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip /tmp/
+ADD https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip /tmp/
 
-RUN unzip -d /usr/bin/ /tmp/terraform_0.12.24_linux_amd64.zip
+RUN unzip -d /usr/bin/ /tmp/terraform_0.13.4_linux_amd64.zip
 
-ADD https://github.com/segmentio/terraform-docs/releases/download/v0.9.1/terraform-docs-v0.9.1-linux-amd64 /tmp/
+ADD https://github.com/segmentio/terraform-docs/releases/download/v0.10.1/terraform-docs-v0.10.1-linux-amd64 /tmp/
 
-RUN install -m 0755 /tmp/terraform-docs-v0.9.1-linux-amd64 /usr/bin/terraform-docs
+RUN install -m 0755 /tmp/terraform-docs-v0.10.1-linux-amd64 /usr/bin/terraform-docs
 
 RUN apt-get -qqy clean && apt-get -qqy update && apt-get -qqy upgrade && apt-get install --no-install-recommends -qqy git shellcheck unzip && apt-get -qqy autoremove && apt-get -qqy clean
 
