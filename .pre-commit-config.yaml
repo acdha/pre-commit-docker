@@ -1,7 +1,7 @@
 exclude: ".*/vendor/.*"
 repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v3.2.0
+      rev: v3.3.0
       hooks:
           - id: check-added-large-files
             args: ["--maxkb=128"]
@@ -26,7 +26,7 @@ repos:
             args: ["--autofix", "--no-sort-keys", "--indent=4"]
           - id: trailing-whitespace
     - repo: https://github.com/pre-commit/mirrors-isort
-      rev: v5.6.0
+      rev: v5.6.4
       hooks:
           - id: isort
     - repo: https://github.com/ambv/black
