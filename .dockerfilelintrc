@@ -1,0 +1,3 @@
+rules:
+    apt-get-upgrade: off
+    apt-get-dist-upgrade: off

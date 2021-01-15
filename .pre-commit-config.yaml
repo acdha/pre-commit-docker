@@ -56,3 +56,7 @@ repos:
       rev: v0.1.10
       hooks:
           - id: shellcheck
+    - repo: https://github.com/pryorda/dockerfilelint-precommit-hooks
+      rev: v0.1.0
+      hooks:
+          - id: dockerfilelint
