@@ -1,7 +1,7 @@
 exclude: ".*/vendor/.*"
 repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v3.3.0
+      rev: v3.4.0
       hooks:
           - id: check-added-large-files
             args: ["--maxkb=128"]
@@ -26,7 +26,7 @@ repos:
             args: ["--autofix", "--no-sort-keys", "--indent=4"]
           - id: trailing-whitespace
     - repo: https://github.com/pre-commit/mirrors-isort
-      rev: v5.6.4
+      rev: v5.7.0
       hooks:
           - id: isort
     - repo: https://github.com/ambv/black
@@ -34,12 +34,12 @@ repos:
       hooks:
           - id: black
     - repo: https://github.com/pre-commit/mirrors-prettier
-      rev: v2.1.2
+      rev: v2.2.1
       hooks:
           - id: prettier
             files: \.(css|less|scss|ts|tsx|graphql|gql|js|jsx|md)$
     - repo: https://github.com/gruntwork-io/pre-commit
-      rev: v0.1.10
+      rev: v0.1.12
       hooks:
           - id: shellcheck
     - repo: https://gitlab.com/pycqa/flake8
@@ -53,7 +53,7 @@ repos:
                 - flake8-eradicate
                 - flake8-logging-format
     - repo: https://github.com/gruntwork-io/pre-commit
-      rev: v0.1.10
+      rev: v0.1.12
       hooks:
           - id: shellcheck
     - repo: https://github.com/pryorda/dockerfilelint-precommit-hooks
