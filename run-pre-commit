@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -n "${CI_PROJECT_DIR}" ]; then
+    cd "${CI_PROJECT_DIR}" || exit 1
+fi
+
+exec pre-commit run --all-files "$@"

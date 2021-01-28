@@ -15,18 +15,17 @@ RUN adduser --system pre-commit
 
 RUN install -d -o pre-commit /code
 
-WORKDIR /code
+COPY run-pre-commit /usr/local/bin
+
+WORKDIR /tmp/build
 
 # Allow this repository's configuration to serve as a default which can be
 # overwritten by the target repo:
-COPY .pre-commit-config.yaml /code
-RUN git init
-RUN pre-commit install-hooks
+COPY .pre-commit-config.yaml /tmp/build
 
-RUN find /tmp/ -type f -delete
+RUN git init && pre-commit install-hooks && find /tmp/build/ -delete && find /tmp/ -type f -delete
 
 VOLUME /code
-
 WORKDIR /code
 
-ENTRYPOINT pre-commit run --all-files
+ENTRYPOINT ["/usr/local/bin/run-pre-commit"]
