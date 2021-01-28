@@ -15,21 +15,18 @@ pre-installed:
 
 ```bash
 $ docker run -it --rm --volume "$(pwd)":/code acdha/pre-commit:latest
+…
 ```
 
 ### GitLab CI
 
 ```yaml
 precommit:
-    tags:
-        - docker
-    image: docker:latest
-    services:
-        - docker:dind
-    before_script:
-        - docker pull acdha/pre-commit
+    image:
+        name: git.loc.gov:4567/devops/pre-commit-docker/master:latest
+        entrypoint: [""]
     script:
-        - docker run --rm --volume "$PWD":/code acdha/pre-commit
+        - exec /usr/local/bin/run-pre-commit
 ```
 
 ### GitHub Actions
