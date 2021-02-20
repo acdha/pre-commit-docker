@@ -5,9 +5,9 @@ ENV DEBIAN_FRONTEND="noninteractive"
 RUN apt-get -qqy clean && apt-get -qqy update && apt-get -qqy upgrade && apt-get install --no-install-recommends -qqy curl git shellcheck busybox && apt-get -qqy autoremove && apt-get -qqy clean && rm -rf /var/lib/apt/lists/*
 
 
-RUN curl --silent --fail https://releases.hashicorp.com/terraform/0.14.4/terraform_0.14.4_linux_amd64.zip | busybox unzip -d /usr/bin/ /dev/stdin && chmod a+x /usr/bin/terraform
+RUN curl --silent --fail https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip | busybox unzip -d /usr/bin/ /dev/stdin && chmod a+x /usr/bin/terraform
 
-RUN curl --silent --fail -Lo /usr/bin/terraform-docs https://github.com/segmentio/terraform-docs/releases/download/v0.10.1/terraform-docs-v0.10.1-linux-amd64 && chmod 0755 /usr/bin/terraform-docs
+RUN curl --silent --fail -Lo /usr/bin/terraform-docs https://github.com/segmentio/terraform-docs/releases/download/v0.11.1/terraform-docs-v0.11.1-linux-amd64 && chmod 0755 /usr/bin/terraform-docs
 
 RUN pip install --no-cache-dir --quiet --upgrade pip && pip install --no-cache-dir --quiet pre-commit
 
