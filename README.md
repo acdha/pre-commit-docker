@@ -20,6 +20,23 @@ $ docker run -it --rm --volume "$(pwd)":/code acdha/pre-commit:latest
 
 ### GitLab CI
 
+#### Recommended: shared template on LC GitLab
+
+To avoid needing to update the configuration in the future, you can simply
+include the template from this repository to run pre-commit during your
+project's validate stage:
+
+```yaml
+include:
+    - project: devops/pre-commit-docker
+      file: templates/pre-commit.yml
+```
+
+#### Alternate (previous usage)
+
+If you want more control over exactly how the job is run you can configure the
+job directly:
+
 ```yaml
 precommit:
     image:
