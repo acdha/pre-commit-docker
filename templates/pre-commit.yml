@@ -1,7 +1,10 @@
+variables:
+    PRECOMMIT_DOCKER_IMAGE: "git.loc.gov:4567/devops/pre-commit-docker/master:latest"
+
 precommit:
     stage: validate
     image:
-        name: git.loc.gov:4567/devops/pre-commit-docker/master:latest
+        name: $PRECOMMIT_DOCKER_IMAGE
         # Until https://gitlab.com/gitlab-org/gitlab/-/issues/223203 is resolved
         # we must clear the entrypoint and run the same command in the script:
         entrypoint: [""]

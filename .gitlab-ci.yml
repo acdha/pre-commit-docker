@@ -2,15 +2,9 @@ stages:
     - build
     - validate
 
+variables:
+    PRECOMMIT_DOCKER_IMAGE: "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHA"
+
 include:
     - template: Jobs/Build.gitlab-ci.yml
-
-precommit:
-    stage: validate
-    image:
-        name: "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHA"
-        # Until https://gitlab.com/gitlab-org/gitlab/-/issues/223203 is resolved
-        # we must clear the entrypoint and run the same command in the script:
-        entrypoint: [""]
-    script:
-        - exec /usr/local/bin/run-pre-commit
+    - local: templates/pre-commit.yml
