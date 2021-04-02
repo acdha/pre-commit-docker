@@ -8,3 +8,9 @@ variables:
 include:
     - template: Jobs/Build.gitlab-ci.yml
     - local: templates/pre-commit.yml
+    - project: "DevOps/shared-gitlab-ci-templates"
+      file: "security/container-scanning-gitlab-ci.yml"
+
+tenable_container_image_scan:
+    extends: .container_image_scan_template
+    stage: validate
