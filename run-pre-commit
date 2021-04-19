@@ -1,7 +1,25 @@
 #!/bin/sh
 
+# Until https://github.com/koalaman/shellcheck/issues/356 is resolved, this is
+# the best we can do:
+# shellcheck disable=SC2154
+
 if [ -n "${CI_PROJECT_DIR}" ]; then
     cd "${CI_PROJECT_DIR}" || exit 1
 fi
 
-exec pre-commit run --all-files "$@"
+if [ "$#" -gt 0 ]; then
+    # If invoked with any parameters, just pass them through without question:
+    exec pre-commit run "$@"
+elif [ -n "${CI_MERGE_REQUEST_TARGET_BRANCH_NAME}" ]; then
+    echo "Testing files modified since ${CI_MERGE_REQUEST_TARGET_BRANCH_NAME}"
+    git fetch origin "${CI_MERGE_REQUEST_TARGET_BRANCH_NAME}"
+    exec pre-commit run --files "$(git diff --name-only "origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME}" HEAD --)"
+elif [ -n "${CI_DEFAULT_BRANCH}" ]; then
+    echo "Testing files modified since ${CI_DEFAULT_BRANCH}"
+    git fetch origin "${CI_DEFAULT_BRANCH}"
+    exec pre-commit run --files "$(git diff --name-only "origin/${CI_DEFAULT_BRANCH}" HEAD --)"
+else
+    echo "Testing all files"
+    exec pre-commit run --all-files
+fi
