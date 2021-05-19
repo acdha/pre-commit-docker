@@ -6,6 +6,7 @@ variables:
     PRECOMMIT_DOCKER_IMAGE: "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHA"
 
 include:
+    - template: "Workflows/Branch-Pipelines.gitlab-ci.yml"
     - template: Jobs/Build.gitlab-ci.yml
     - local: templates/pre-commit.yml
     - project: "DevOps/shared-gitlab-ci-templates"
