@@ -4,11 +4,11 @@ ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN apt-get -qqy clean && apt-get -qqy update && apt-get -qqy upgrade && apt-get install --no-install-recommends -qqy curl git git-lfs shellcheck busybox && apt-get -qqy autoremove && apt-get -qqy clean && rm -rf /var/lib/apt/lists/*
 
-RUN curl --silent --fail https://releases.hashicorp.com/terraform/0.14.10/terraform_0.14.10_linux_amd64.zip | busybox unzip -d /usr/bin/ /dev/stdin && chmod a+x /usr/bin/terraform
+RUN curl --silent --fail https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip | busybox unzip -d /usr/bin/ /dev/stdin && chmod a+x /usr/bin/terraform
 
-RUN curl --silent --fail -L https://github.com/terraform-docs/terraform-docs/releases/download/v0.13.0/terraform-docs-v0.13.0-linux-amd64.tar.gz | tar -C /usr/bin/ -zx terraform-docs
+RUN curl --silent --fail -L https://github.com/terraform-docs/terraform-docs/releases/download/v0.14.1/terraform-docs-v0.14.1-linux-amd64.tar.gz | tar -C /usr/bin/ -zx terraform-docs
 
-RUN curl --silent --fail -Lo /usr/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.3.0/hadolint-Linux-x86_64 && chmod 0755 /usr/bin/hadolint
+RUN curl --silent --fail -Lo /usr/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.4.1/hadolint-Linux-x86_64 && chmod 0755 /usr/bin/hadolint
 
 RUN pip install --no-cache-dir --quiet --upgrade pip && pip install --no-cache-dir --quiet pre-commit
 
