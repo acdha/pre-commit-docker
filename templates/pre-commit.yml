@@ -3,6 +3,7 @@ variables:
 
 precommit:
     stage: validate
+    needs: []
     image:
         name: $PRECOMMIT_DOCKER_IMAGE
         # Until https://gitlab.com/gitlab-org/gitlab/-/issues/223203 is resolved

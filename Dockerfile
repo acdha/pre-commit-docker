@@ -1,4 +1,4 @@
-FROM python:3.9-slim-buster
+FROM git.loc.gov:4567/devops/docker-hub-mirror/python:3.9
 
 ENV DEBIAN_FRONTEND="noninteractive"
 
