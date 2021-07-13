@@ -24,12 +24,23 @@ $ docker run -it --rm --volume "$(pwd)":/code acdha/pre-commit:latest
 
 To avoid needing to update the configuration in the future, you can simply
 include the template from this repository to run pre-commit during your
-project's validate stage:
+project's `validate` stage:
 
 ```yaml
 include:
     - project: devops/pre-commit-docker
       file: templates/pre-commit.yml
+```
+
+If you want to run during a different stage, you can override the default:
+
+```yaml
+include:
+    - project: devops/pre-commit-docker
+      file: templates/pre-commit.yml
+
+precommit:
+    stage: test
 ```
 
 #### Alternate (previous usage)
