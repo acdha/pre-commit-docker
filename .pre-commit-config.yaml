@@ -25,44 +25,12 @@ repos:
           - id: pretty-format-json
             args: ["--autofix", "--no-sort-keys", "--indent=4"]
           - id: trailing-whitespace
-    - repo: https://github.com/pre-commit/mirrors-isort
-      rev: v5.8.0
-      hooks:
-          - id: isort
-    - repo: https://github.com/ambv/black
-      rev: 21.5b2
-      hooks:
-          - id: black
     - repo: https://github.com/pre-commit/mirrors-prettier
-      rev: v2.3.1
+      rev: v2.3.2
       hooks:
           - id: prettier
             files: \.(css|less|scss|ts|tsx|graphql|gql|js|jsx|md)$
-    - repo: https://github.com/gruntwork-io/pre-commit
-      rev: v0.1.12
-      hooks:
-          - id: shellcheck
-    - repo: https://gitlab.com/pycqa/flake8
-      rev: 3.9.2
-      hooks:
-          - id: flake8
-            additional_dependencies:
-                - flake8-assertive
-                - flake8-bugbear
-                - flake8-comprehensions
-                - flake8-eradicate
-                - flake8-logging-format
-    - repo: https://github.com/gruntwork-io/pre-commit
-      rev: v0.1.12
-      hooks:
-          - id: shellcheck
     - repo: https://github.com/pryorda/dockerfilelint-precommit-hooks
       rev: v0.1.0
       hooks:
           - id: dockerfilelint
-    - repo: https://github.com/Yelp/detect-secrets
-      rev: v1.1.0
-      hooks:
-          - id: detect-secrets
-            args: ["--baseline", ".secrets.baseline"]
-            exclude: ".*/Pipfile.*"

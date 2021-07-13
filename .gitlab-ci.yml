@@ -15,3 +15,7 @@ include:
 tenable_container_image_scan:
     extends: .container_image_scan_template
     stage: validate
+
+precommit:
+    needs:
+        - build
