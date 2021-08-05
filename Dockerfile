@@ -8,7 +8,7 @@ RUN curl --silent --fail https://releases.hashicorp.com/terraform/1.0.4/terrafor
 
 RUN curl --silent --fail -L https://github.com/terraform-docs/terraform-docs/releases/download/v0.14.1/terraform-docs-v0.14.1-linux-amd64.tar.gz | tar -C /usr/bin/ -zx terraform-docs
 
-RUN curl --silent --fail -Lo /usr/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.1/hadolint-Linux-x86_64 && chmod 0755 /usr/bin/hadolint
+RUN curl --silent --fail -Lo /usr/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 && chmod 0755 /usr/bin/hadolint
 
 RUN pip install --no-cache-dir --quiet --upgrade pip && pip install --no-cache-dir --quiet pre-commit
 
