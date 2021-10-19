@@ -6,7 +6,7 @@ RUN apt-get -qqy clean && apt-get -qqy update && apt-get -qqy upgrade && apt-get
 
 RUN curl --silent --fail https://releases.hashicorp.com/terraform/1.0.9/terraform_1.0.9_linux_amd64.zip | busybox unzip -d /usr/bin/ /dev/stdin && chmod a+x /usr/bin/terraform
 
-RUN curl --silent --fail -L https://github.com/terraform-docs/terraform-docs/releases/download/v0.15.0/terraform-docs-v0.15.0-linux-amd64.tar.gz | tar -C /usr/bin/ -zx terraform-docs
+RUN curl --silent --fail -L https://github.com/terraform-docs/terraform-docs/releases/download/v0.16.0/terraform-docs-v0.16.0-linux-amd64.tar.gz | tar -C /usr/bin/ -zx terraform-docs
 
 RUN curl --silent --fail -Lo /usr/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.7.0/hadolint-Linux-x86_64 && chmod 0755 /usr/bin/hadolint
 
