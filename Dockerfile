@@ -14,9 +14,10 @@ RUN pip install --no-cache-dir --quiet --upgrade pip && pip install --no-cache-d
 
 RUN adduser --system pre-commit
 
-RUN install -d -o pre-commit /code
-
+RUN install -d -o pre-commit /code /tmp/build
 COPY run-pre-commit /usr/local/bin
+
+USER pre-commit
 
 WORKDIR /tmp/build
 
@@ -24,7 +25,7 @@ WORKDIR /tmp/build
 # overwritten by the target repo:
 COPY .pre-commit-config.yaml /tmp/build
 
-RUN git init && pre-commit install-hooks && find /tmp/build/ -delete && find /tmp/ -type f -delete
+RUN git init && pre-commit install-hooks && find /tmp/build/ -delete
 
 VOLUME /code
 WORKDIR /code
