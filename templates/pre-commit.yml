@@ -9,5 +9,15 @@ precommit:
         # Until https://gitlab.com/gitlab-org/gitlab/-/issues/223203 is resolved
         # we must clear the entrypoint and run the same command in the script:
         entrypoint: [""]
+    variables:
+        PRE_COMMIT_HOME: "$CI_PROJECT_DIR/.cache/pre-commit"
+        PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
     script:
         - exec /usr/local/bin/run-pre-commit
+    cache:
+        - key:
+              files:
+                  - .pre-commit-config.yaml
+          paths:
+              - $PRE_COMMIT_HOME
+              - $PIP_CACHE_DIR
