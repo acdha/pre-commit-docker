@@ -6,8 +6,8 @@ stage.
 Because they are on use on many projects, the following dependencies are
 pre-installed:
 
--   terraform
--   terraform-docs
+- terraform
+- terraform-docs
 
 ## Usage
 
